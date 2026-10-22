@@ -40,13 +40,13 @@ Optional tool call (may mutate the server, depending on the tool):
 python smokecheck.py --url http://127.0.0.1:8000/mcp --call list_open_tasks
 ```
 
-Pass JSON arguments when a tool requires them:
+Pass a JSON object when a tool requires arguments:
 
 ```bash
-python smokecheck.py --url http://127.0.0.1:8000/mcp --call get_task --arguments '{"task_id":"demo-1"}'
+python smokecheck.py --url http://127.0.0.1:8000/mcp --call YOUR_TOOL_NAME --arguments '{"key":"value"}'
 ```
 
-The example tool names and argument names are illustrative; use the names and schema returned by your own server. Do not call a mutating tool on a production server unless you understand its effects.
+Replace `YOUR_TOOL_NAME` and the JSON keys with a tool name and input schema returned by your own server. Do not call a mutating tool on a production server unless you understand its effects.
 
 ## Exit codes
 
