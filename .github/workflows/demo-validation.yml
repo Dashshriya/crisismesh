@@ -1,0 +1,27 @@
+name: CrisisMesh demo validation
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  static-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate demo JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+          source = Path("demo/index.html").read_text()
+          scripts = re.findall(r"<script>(.*?)</script>", source, re.S)
+          if not scripts:
+              raise SystemExit("No inline script found")
+          Path("/tmp/crisismesh-check.js").write_text(scripts[-1])
+          subprocess.run(["node", "--check", "/tmp/crisismesh-check.js"], check=True)
+          PY
