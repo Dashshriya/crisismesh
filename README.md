@@ -1,35 +1,21 @@
-# CrisisMesh 🚨
+# CrisisMesh — Emergency coordination demo
 
-**Resilient emergency communication and response coordination.**
+CrisisMesh explores how a response team could coordinate incidents when normal communication is unreliable. This repository currently contains an interactive **frontend simulation**, not a live emergency dispatch system.
 
-CrisisMesh is a full-stack emergency-response prototype designed around one principle: when normal communication becomes unreliable, critical information should still find a path to people who can act.
+## Demo
+Open `demo/index.html` in a modern browser.
 
-## What it demonstrates
+## Working interactions
+- Search and filter incidents by severity
+- Inspect an incident from its queue entry or map marker
+- Assign an available response team to an unassigned incident
+- Resolve assigned incidents and return the team to the available pool
+- Report a new incident through a validated form
+- Review the session activity timeline
+- Export the incident list as CSV
+- Responsive command-center layout with explicit simulation and map disclaimers
 
-- Live incident and SOS command dashboard
-- Interactive disaster map with severity-aware markers
-- Citizen, volunteer, rescue-team and command-center workflows
-- Simulated decentralized message relay / mesh routing
-- AI-assisted emergency triage
-- Real-time updates over WebSockets
-- Shelter, hazard and rescue-team coordination
-- Operational analytics and response metrics
-
-## Stack
-
-- **Frontend:** React, Vite, Tailwind CSS, React-Leaflet
-- **Backend:** FastAPI, SQLAlchemy, Pydantic
-- **Realtime:** WebSockets
-- **Database:** SQLite for local demo; PostgreSQL-ready architecture
-- **AI:** Gemini-compatible triage service
-
-## Demo flow
-
-1. Open the command center.
-2. Inspect active incidents on the live map.
-3. Trigger a simulated SOS.
-4. Watch triage, assignment and network propagation update in real time.
-5. Open the network view to see nodes and relay paths.
-6. Resolve the incident and inspect the response analytics.
-
-> CrisisMesh is a prototype for demonstration and research. AI output is decision support and must not be treated as autonomous emergency instructions.
+## Important limitations
+- Incidents, map positions, response teams and events are simulated in the browser.
+- The map is illustrative and is not suitable for navigation or operational emergency response.
+- This repository does not currently contain a connected FastAPI backend, real WebSocket service, or live mesh-network transport. No emergency services are contacted.
